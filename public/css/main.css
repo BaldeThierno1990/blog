@@ -5,7 +5,9 @@ body {
     border: none;
     background-color: #252836;
     color: #fff;
-    border-radius: 12px
+    border-radius: 15px;
+   
+    
 }
 
 .user-timing {
@@ -38,5 +40,5 @@ body {
 }
 
 .snipimage img {
-    height: 200px
+    height: 300px
 }
