@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+   <style>
+h1{
+    font-size:50px
+}
+p{
+    font-family: Georgia, serif;
+     font-size:20px
+}
+</style>
+
+
+
+<div class="container mt-4">
+  <h1><strong>{{article.titre}}</strong></h1>
+ 
+ 
+   <img src="{{vich_uploader_asset(article, 'imageFile')}}" class="rounded img-fluid w-100 img-responsive"> 
+                 
+  <div class="mt-1 mb-1 spec-1"><small>Publié le {{article.createdAt|date('Y-m-d H:i:s')}}</small></div>
+  <p>{{article.contenu|raw}}</p>
+  
+ 
+</div>
+
+					
+				
+			
+
+        </div>
+        
+              <a class="btn btn-success mt-4" href="{{ path('articles_index') }}">Retour au blog</a>
+          </div>
+
+
+ 
+
+
+{% endblock %}

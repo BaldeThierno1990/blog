@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}MLAPA|Entreprise de transport !{% endblock %}</title>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+      <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+       
+    </head>
+    <body>
+    {#navbar#}
+    <nav class="navbar navbar-expand-lg navbar-light  bg-primary fixed top-0"style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)";>
+  <div class="container-fluid">
+
+              <a class="nav-link active text-2xl text-white" aria-current="page" href="">MLAPA</a>
+                  <a class="navbar-brand text-white text-3xl" href=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon bg-white"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link active text-2xl text-white" aria-current="page" href="">Accueil</a>
+        </li>
+          <li class="nav-item">
+           <a class="nav-link text-2xl text-white" href="{{path('articles_new')}}">Ajouter votre annoce</a>
+        </li>
+        
+       
+       
+        {% if not app.user %}
+         <li class="nav-item">
+           <a class="nav-link text-2xl text-white" href="{{path('app_login')}}">Connexion</a>
+        </li>
+         {% else %}
+      
+       
+        
+          <li class="nav-item">
+           <a class="nav-link text-white text-2xl" href="{{path('app_logout')}}">Déconnexion</a>
+        </li>
+        {% endif %}
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+{#navbar fin#}
+    <div class="container mt-20">
+
+        {% block body %}{% endblock %}
+    </div>
+     <div class="footer mt-5">
+   
+    <div class="row d-flex justify-content-center">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+      
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+   
+    <div class="menu-footer flex">
+
+         
+      <div class="flex-1">
+        <h1>Notre partenaire</h1>
+        <img src="/images/chronopost.jpeg" width="90" alt="chronopost">
+      
+      </div>
+     
+      <div class="flex-1">
+        <h1>Actualité</h1>
+        <a href="#" class="block py-1 text-gray-600 hover:underline"></a>
+        <a href="" class="block py-1 text-gray-600 hover:underline">Notre blog</a>
+     
+      </div>
+
+      <div class="flex-1" id="social-media ">
+        <h1 class="lien">Prestataire</h1><!--la class lien attribut pour le css-->
+        <div class="row">
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light">
+       
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);" ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+        <!--la class social attribut pour le css-->
+           <img src="/images/imb.jpeg" alt="imb">
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div
+            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+           <i class="fab fa-whatsapp"></i> <!--la class social attribut pour le css-->
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.2);"
+              ></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+         {% block javascripts %}
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        {% endblock %}
+    </body>
+</html>
